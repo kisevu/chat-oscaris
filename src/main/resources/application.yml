@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: oscaris-chat-app
+  datasource:
+    url: jdbc:postgresql://localhost:5432/oscaris-chat
+    username: username
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: false
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9090/realms/chat-app-realm
+
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+
+
+application:
+  file:
+    uploads:
+      media-output-path: ./uploads
+
+
+springdoc:
+  default-produces-media-type: application/json
+server:
+  port: 8787
