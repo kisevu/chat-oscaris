@@ -30,7 +30,7 @@ export class UserService extends BaseService {
    * This method doesn't expect any request body.
    */
   getUsers$Response(params?: GetUsers$Params, context?: HttpContext): Observable<StrictHttpResponse<{
-}>> {
+   }>> {
     return getUsers(this.http, this.rootUrl, params, context);
   }
 
@@ -44,9 +44,11 @@ export class UserService extends BaseService {
 }> {
     return this.getUsers$Response(params, context).pipe(
       map((r: StrictHttpResponse<{
-}>): {
+  }>): {
 } => r.body)
     );
   }
+
+  
 
 }
